@@ -81,11 +81,25 @@ Lower-level building blocks are exported too (`Bikrami`, `sunriseUTC`, `tithiAt`
 
 ## Adding a new Jantri year
 
-When a new Jantri is published, add one file — `data/pinned/ns<year>.json` (copy the shape of
+Before the Jantri appears, print the estimate sheet to transcribe against:
+
+```bash
+npm run compare -- 559        # unpinned: full estimated year (sangrands, massia/purnmashi, events)
+```
+
+When the Jantri is published, add one file — `data/pinned/ns<year>.json` (copy the shape of
 `ns558.json`): 12 sangrands, massia/purnmashi days, and each event's printed date with a source
-page note. Run `npm test` — the suite validates the model against every pinned data point, so a
-misread Gurmukhi digit (the look-alikes ੨/੭, ੫/੬/੯, ੮/੯ are the classic trap) shows up as a test
-failure to investigate before shipping.
+page note. Then:
+
+```bash
+npm run compare -- 559        # pinned: diffs every pinned value against the model
+npm test
+```
+
+Any `DIFF` is either a misread Gurmukhi digit (the look-alikes ੨/੭, ੫/੬/੯, ੮/੯ are the classic
+trap) or a genuine editorial change in the Jantri — both worth a second look before shipping.
+Real editorial changes can be recorded with a `"divergence": "..."` note on the pinned entry,
+which downgrades the DIFF to a documented warning.
 
 ## Related work
 

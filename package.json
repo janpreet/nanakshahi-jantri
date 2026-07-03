@@ -1,6 +1,6 @@
 {
   "name": "nanakshahi-jantri",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Nanakshahi calendar (official Jantri) engine: pinned printed-Jantri data with a calibrated drik Bikrami astronomical fallback — sangrands, tithis, Gurpurabs.",
   "type": "module",
   "main": "src/index.js",
@@ -8,15 +8,36 @@
     ".": "./src/index.js",
     "./data/*": "./data/*"
   },
-  "files": ["src/", "data/", "README.md", "LICENSE"],
+  "files": [
+    "src/",
+    "data/",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "test": "node --test test/*.test.js"
+    "test": "node --test test/*.test.js",
+    "compare": "node bin/compare.js"
   },
-  "keywords": ["nanakshahi", "jantri", "sikh", "calendar", "gurpurab", "bikrami", "panchang", "sankranti", "tithi"],
+  "keywords": [
+    "nanakshahi",
+    "jantri",
+    "sikh",
+    "calendar",
+    "gurpurab",
+    "bikrami",
+    "panchang",
+    "sankranti",
+    "tithi"
+  ],
   "author": "Janpreet Singh <singh@janpreet.com>",
   "license": "MIT",
-  "repository": { "type": "git", "url": "git+https://github.com/janpreet/nanakshahi-jantri.git" },
-  "engines": { "node": ">=18.0.0" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janpreet/nanakshahi-jantri.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "astronomy-engine": "^2.1.19"
   }
